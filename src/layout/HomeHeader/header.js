@@ -39,6 +39,15 @@ const Header = () => {
               <NavLink
                 className="nav-link active"
                 aria-current="page"
+                to="/contact"
+              >
+                Contact us
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link active"
+                aria-current="page"
                 to="/register"
               >
                 Register
@@ -51,6 +60,15 @@ const Header = () => {
                 to="/login"
               >
                 Login
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link active"
+                aria-current="page"
+                to="/logout"
+              >
+                Logout
               </NavLink>
             </li>
           </ul>

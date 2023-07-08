@@ -3,16 +3,20 @@ import "./card.css";
 import { useNavigate } from "react-router-dom";
 const Card = () => {
   const [UserData, setUserData] = useState("Object");
+  const [windowSize, setwindowSize] = useState();
   let Navigate = useNavigate();
+  let runWindow = () => {
+    setwindowSize(() => window.innerWidth);
+  };
   let handleGet = async () => {
     try {
       let res = await fetch("http://localhost:8000/about", {
         method: "GET",
         credentials: "include",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+        // headers: {
+        //   //   Accept: "application/json",
+        // //   "Content-Type": "application/json",
+        // },
       });
       let data = await res.json();
       setUserData(data);
@@ -31,6 +35,11 @@ const Card = () => {
   };
   useEffect(() => {
     handleGet();
+    window.addEventListener("resize", runWindow);
+
+    return () => {
+      window.removeEventListener("resize", runWindow);
+    };
   }, []);
   return (
     <div>
@@ -238,6 +247,13 @@ const Card = () => {
                     <div className="col-sm-9 text-secondary">
                       {UserData.work}
                     </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Window Size</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">{windowSize}</div>
                   </div>
                   <hr />
                   <div className="row">

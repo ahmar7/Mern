@@ -296,7 +296,7 @@ h2 {
 
 .main {
   background: #f8f8f8;
-  padding: 150px 0;
+  padding: 20px 0;
 }
 
 .clear {
@@ -779,4 +779,3 @@ label.valid:after {
     margin-bottom: 10px;
   }
 }
- 

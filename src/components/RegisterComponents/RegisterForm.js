@@ -128,7 +128,7 @@ const RegisterForm = () => {
                     <i className="zmdi zmdi-email" />
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     name="phone"
                     onChange={handleInput}
                     value={user.phone}
